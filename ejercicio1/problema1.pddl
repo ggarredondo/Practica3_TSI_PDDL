@@ -1,8 +1,8 @@
 (define (problem ejercicio1)
     (:domain starcraft)
     (:objects
-        VCE1 - VCE
-        CentroDeMando1 - CentroDeMando
+        VCE1 - Unidad
+        CentroDeMando1 - Edificio
         LOC11 LOC12 LOC13 LOC14 - Localizacion
         LOC21 LOC22 LOC23 LOC24 - Localizacion
         LOC31 LOC32 LOC33 LOC34 - Localizacion
@@ -44,6 +44,8 @@
         (camino LOC34 LOC24)
         (camino LOC34 LOC33)
         
+        (esTipo VCE1 VCE)
+        (esTipo CentroDeMando1 CentroDeMando)
         (en VCE1 LOC11)
         (en CentroDeMando1 LOC11)
         (en Mineral LOC23)

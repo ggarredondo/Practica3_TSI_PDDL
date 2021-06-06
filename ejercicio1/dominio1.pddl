@@ -3,17 +3,18 @@
     (:types 
         entity Localizacion - object
         Unidad Edificio Recurso - entity
-        VCE - Unidad
-        CentroDeMando Barracones - Edificio
     )
     (:constants
+        VCE - Unidad
+        CentroDeMando Barracones - Edificio
         Mineral Gas - Recurso
     )
     (:predicates
+        (esTipo ?ent1 - entity ?ent2 - entity)
         (en ?ent - entity ?loc - Localizacion)
         (camino ?loc1 - Localizacion ?loc2 - Localizacion)
         (construido ?edf - Edificio)
-        (extrayendo ?vce - VCE ?re - Recurso)
+        (extrayendo ?vce - Unidad ?re - Recurso)
     )
     (:action Navegar
         :parameters (?un - Unidad ?origen - Localizacion ?destino - Localizacion)
