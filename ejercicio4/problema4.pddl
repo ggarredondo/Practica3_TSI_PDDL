@@ -47,18 +47,18 @@
         (esTipo VCE1 VCE) ; Asignar el tipo VCE a la unidad VCE1.
         (esTipo VCE2 VCE) ; Asignar el tipo VCE a la unidad VCE2.
         (esTipo VCE3 VCE) ; Asignar el tipo VCE a la unidad VCE3.
+        (reclutado VCE1) ; VCE1 ya está reclutado.
         (esTipo Marine1 Marine) ; Asignar el tipo Marine a la unidad Marine1.
         (esTipo Marine2 Marine) ; Asignar el tipo Marine a la unidad Marine2.
         (esTipo Sesgador1 Sesgador) ; Asignar el tipo Sesgador a la unidad Sesgador1.
         (esTipo CentroDeMando1 CentroDeMando) ; Asignación del tipo CentroDeMando al edificio CentroDeMando1.
+        (construido CentroDeMando1) ; CentroDeMando1 ya está construido.
         (esTipo Extractor1 Extractor) ; Asignar el tipo Extractor al edificio Extractor1.
         (esTipo Barracones1 Barracones) ; Asignar el tipo Barracones al edificio Barracones1.
         (necesita Extractor Mineral) ; Los extractores necesitan Mineral para su construcción.
         (necesita Barracones Mineral) ; Los Barracones necesitan Mineral
         (necesita Barracones Gas) ; y Gas.
         (en VCE1 LOC11) ; VCE1 se encuentra en LOC11.
-        (en VCE2 LOC11) ; VCE2 se encuentra en LOC11.
-        (en VCE3 LOC11) ; VCE3 se encuentra en LOC11.
         (en CentroDeMando1 LOC11) ; CentroDeMando1 está en LOC11.
         (en Mineral LOC23) ; Hay Mineral en LOC23.
         (en Mineral LOC33) ; Hay Mineral en LOC33.
