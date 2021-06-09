@@ -27,9 +27,11 @@
                 (not (en ?un ?origen)) ; La unidad ya no está en la posición de origen.
         )
     )
-    (:action Asignar ; Asignar un recurso a una unidad.
+    (:action Asignar ; Asignar un recurso a un VCE.
         :parameters (?un - Unidad ?locRecurso - Localizacion ?re - Recurso)
         :precondition(and 
+                (not (extrayendo ?un ?re)) ; Comprobar que la unidad no está ya asignada al recurso.
+                (esTipo ?un VCE) ; Comprobar que la unidad es un VCE.
                 (en ?un ?locRecurso) ; La unidad debe estar en la ubicación del recurso.
                 (en ?re ?locRecurso) ; El recurso debe estar en la ubicación pasada por parámetro.
         )

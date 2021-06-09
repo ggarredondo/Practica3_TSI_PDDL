@@ -55,15 +55,23 @@
         )
     )
     (:action Construir ; Construir un edificio.
-        :parameters (?un - Unidad ?edf - Edificio ?loc - Localizacion ?re - Recurso)
+        :parameters (?un - Unidad ?edf - Edificio ?loc - Localizacion)
         :precondition(and
             (esTipo ?un VCE) ; Comprobar que la unidad es un VCE.
             (not (construido ?edf)) ; El edificio no ha sido construido ya.
             (not (extrayendo ?un Mineral)) ; La unidad no está ocupada extrayendo mineral
             (not (extrayendo ?un Gas)) ; ó gas.
             (en ?un ?loc) ; La unidad se encuentra en la localización donde se va a construir el edificio.
-            (necesita ?edf ?re) ; El edificio necesita el recurso con el cual se va a construir.
-            (generando ?re) ; Se está generando dicho recurso.
+            (exists (?tipoEdf - Edificio) ; Comprobamos si está definido el tipo de edificio para edf
+                (and
+                    (esTipo ?edf ?tipoEdf)
+                    (forall (?re - Recurso) ; para luego comprobar los requisitos de construcción para ese tipo.
+                        (imply (necesita ?tipoEdf ?re) ; Si el tipo necesita un recurso...
+                            (generando ?re) ; ...el recurso debe estar siendo extraído.
+                        )
+                    )
+                )
+            )
         )
         :effect(and
             (en ?edf ?loc) ; El edificio queda construido en dicho nodo.

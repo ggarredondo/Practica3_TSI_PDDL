@@ -1,9 +1,8 @@
-(define (problem ejercicio2)
+(define (problem ejercicio3)
     (:domain starcraft)
     (:objects
-        VCE1 VCE2 - Unidad
-        CentroDeMando1 - Edificio
-        Extractor1 - Edificio
+        VCE1 VCE2 VCE3 - Unidad
+        Extractor1 Barracones1 CentroDeMando1 - Edificio
         LOC11 LOC12 LOC13 LOC14 - Localizacion ; Definición del grafo.
         LOC21 LOC22 LOC23 LOC24 - Localizacion
         LOC31 LOC32 LOC33 LOC34 - Localizacion
@@ -47,18 +46,23 @@
         
         (esTipo VCE1 VCE) ; Asignar el tipo VCE a la unidad VCE1.
         (esTipo VCE2 VCE) ; Asignar el tipo VCE a la unidad VCE2.
+        (esTipo VCE3 VCE) ; Asignar el tipo VCE a la unidad VCE3.
         (esTipo CentroDeMando1 CentroDeMando) ; Asignación del tipo CentroDeMando al edificio CentroDeMando1.
         (esTipo Extractor1 Extractor) ; Asignar el tipo Extractor al edificio Extractor1.
-        (necesita Extractor1 Mineral) ; Extractor1 necesita Mineral para su construcción.
+        (esTipo Barracones1 Barracones) ; Asignar el tipo Barracones al edificio Barracones1.
+        (necesita Extractor Mineral) ; Los extractores necesitan Mineral para su construcción.
+        (necesita Barracones Mineral) ; Los Barracones necesitan Mineral
+        (necesita Barracones Gas) ; y Gas.
         (en VCE1 LOC11) ; VCE1 se encuentra en LOC11.
         (en VCE2 LOC11) ; VCE2 se encuentra en LOC11.
+        (en VCE3 LOC11) ; VCE3 se encuentra en LOC11.
         (en CentroDeMando1 LOC11) ; CentroDeMando1 está en LOC11.
         (en Mineral LOC23) ; Hay Mineral en LOC23.
         (en Mineral LOC33) ; Hay Mineral en LOC33.
         (en Gas LOC13) ; Hay Mineral en LOC13.
     )
     (:goal  (and
-            (extrayendo VCE1 Gas) ; VCE1 debe acabar extrayendo gas.
+            (en Barracones1 LOC32) ; Construcción de Barracones1 en LOC32.
         )
     )
 )
