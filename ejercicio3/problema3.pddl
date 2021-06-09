@@ -48,6 +48,7 @@
         (esTipo VCE2 VCE) ; Asignar el tipo VCE a la unidad VCE2.
         (esTipo VCE3 VCE) ; Asignar el tipo VCE a la unidad VCE3.
         (esTipo CentroDeMando1 CentroDeMando) ; Asignación del tipo CentroDeMando al edificio CentroDeMando1.
+        (construido CentroDeMando1) ; CentroDeMando1 ya está construido.
         (esTipo Extractor1 Extractor) ; Asignar el tipo Extractor al edificio Extractor1.
         (esTipo Barracones1 Barracones) ; Asignar el tipo Barracones al edificio Barracones1.
         (necesita Extractor Mineral) ; Los extractores necesitan Mineral para su construcción.
