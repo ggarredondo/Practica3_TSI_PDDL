@@ -5,7 +5,7 @@
         Unidad Edificio Recurso - entity ; Supertipo 'entity' para incluir los tres elementos más importantes del juego.
     )
     (:constants ; Constantes para definir los subtipos de Unidad, Edificio y Recurso.
-        VCE Marine Sesgador - Unidad
+        VCE Marine Segador - Unidad
         CentroDeMando Barracones Extractor - Edificio
         Mineral Gas - Recurso
     )
@@ -95,7 +95,7 @@
                     (esTipo ?edf Barracones)
                 )
                 (and
-                    (esTipo ?un Sesgador)
+                    (esTipo ?un Segador)
                     (generando Gas)
                     (esTipo ?edf Barracones)
                 )

@@ -1,7 +1,7 @@
 (define (problem ejercicio3)
     (:domain starcraft)
     (:objects
-        VCE1 VCE2 VCE3 Marine1 Marine2 Sesgador1 - Unidad
+        VCE1 VCE2 VCE3 Marine1 Marine2 Segador1 - Unidad
         Extractor1 Barracones1 CentroDeMando1 - Edificio
         LOC11 LOC12 LOC13 LOC14 - Localizacion ; Definición del grafo.
         LOC21 LOC22 LOC23 LOC24 - Localizacion
@@ -50,7 +50,7 @@
         (reclutado VCE1) ; VCE1 ya está reclutado.
         (esTipo Marine1 Marine) ; Asignar el tipo Marine a la unidad Marine1.
         (esTipo Marine2 Marine) ; Asignar el tipo Marine a la unidad Marine2.
-        (esTipo Sesgador1 Sesgador) ; Asignar el tipo Sesgador a la unidad Sesgador1.
+        (esTipo Segador1 Segador) ; Asignar el tipo Sesgador a la unidad Sesgador1.
         (esTipo CentroDeMando1 CentroDeMando) ; Asignación del tipo CentroDeMando al edificio CentroDeMando1.
         (construido CentroDeMando1) ; CentroDeMando1 ya está construido.
         (esTipo Extractor1 Extractor) ; Asignar el tipo Extractor al edificio Extractor1.
@@ -67,7 +67,8 @@
     (:goal  (and
             (en Marine1 LOC31) ; Disponer de un marine (Marine1) en la localización LOC31,
             (en Marine2 LOC24) ; otro  marine  (Marine2)  en  la  localización  LOC24, 
-            (en Sesgador1 LOC12) ; y  un  segador (Segador1)  en  la  localización LOC12.
+            (en Segador1 LOC12) ; y  un  segador (Segador1)  en  la  localización LOC12.
+            (en Barracones1 LOC32) ; Barracones1 debe estár en la localización LOC32.
         )
     )
 )
