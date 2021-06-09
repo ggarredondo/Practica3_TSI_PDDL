@@ -15,10 +15,12 @@
         (camino ?loc1 - Localizacion ?loc2 - Localizacion) ; Predicado para unir las localizaciones.
         (construido ?edf - Edificio) ; Predicado para saber si se ha construido un edificio en concreto.
         (extrayendo ?vce - Unidad ?re - Recurso) ; Predicado para saber si una unidad está asignada a un recurso.
+        (ocupada ?un - Unidad) ; Predicado para comprobar si una unidad está ocupada (extrayendo). 
     )
     (:action Navegar ; Desplazar la unidad de un punto a otro.
         :parameters (?un - Unidad ?origen - Localizacion ?destino - Localizacion)
         :precondition(and
+                (not (ocupada ?un)) ; Comprobar que la unidad no está ocupada.
                 (en ?un ?origen) ; La unidad debe estar en la posición de origen.
                 (camino ?origen ?destino) ; Debe haber un camino del origen al destino.
         )
@@ -30,13 +32,14 @@
     (:action Asignar ; Asignar un recurso a un VCE.
         :parameters (?un - Unidad ?locRecurso - Localizacion ?re - Recurso)
         :precondition(and 
-                (not (extrayendo ?un ?re)) ; Comprobar que la unidad no está ya asignada al recurso.
+                (not (ocupada ?un)) ; Comprobar que la unidad no está ocupada.
                 (esTipo ?un VCE) ; Comprobar que la unidad es un VCE.
                 (en ?un ?locRecurso) ; La unidad debe estar en la ubicación del recurso.
                 (en ?re ?locRecurso) ; El recurso debe estar en la ubicación pasada por parámetro.
         )
         :effect(and
                 (extrayendo ?un ?re) ; La unidad queda asignada al recurso.
+                (ocupada ?un) ; Se establece que la unidad está ocupada.
         )
     )
 )
